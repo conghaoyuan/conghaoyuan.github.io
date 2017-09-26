@@ -6,14 +6,34 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Ferdbi</title>
+  <title>Hadoop系列之（一）CentOS7安装配置及SSH无密码验证配置 | Ferdbi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Ferdbi">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="由于最近在进行关于Hadoop的学习，开始重新搭建一套Hadoop的环境，和之前自己搭建的环境的区别在于操作系统的版本，本次采用的为CentOS7.2的版本，7相对于6的版本改动较大。一些命令都不太一样，其中在其内核中加了Docker，因此在后期装相关软件时不需要重新安装，应该说也是Hadoop生态体系后期迁移的一个重点。故本次搭建采用CentOS7.2的最新版本。">
+<meta name="keywords" content="大数据,Hadoop,CentOS7,SSH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hadoop系列之（一）CentOS7安装配置及SSH无密码验证配置">
+<meta property="og:url" content="http://yoursite.com/2016/11/14/Hadoop-CentOS7-SSH/index.html">
 <meta property="og:site_name" content="Ferdbi">
+<meta property="og:description" content="由于最近在进行关于Hadoop的学习，开始重新搭建一套Hadoop的环境，和之前自己搭建的环境的区别在于操作系统的版本，本次采用的为CentOS7.2的版本，7相对于6的版本改动较大。一些命令都不太一样，其中在其内核中加了Docker，因此在后期装相关软件时不需要重新安装，应该说也是Hadoop生态体系后期迁移的一个重点。故本次搭建采用CentOS7.2的最新版本。">
+<meta property="og:image" content="http://yoursite.com/images/161114/16111401.png">
+<meta property="og:image" content="http://yoursite.com/images/161114/16111402.png">
+<meta property="og:image" content="http://yoursite.com/images/161114/16111403.png">
+<meta property="og:image" content="http://yoursite.com/images/161114/16111404.png">
+<meta property="og:image" content="http://yoursite.com/images/161114/16111405.png">
+<meta property="og:image" content="http://yoursite.com/images/161114/16111406.png">
+<meta property="og:image" content="http://yoursite.com/images/161114/16111407.png">
+<meta property="og:image" content="http://yoursite.com/images/161114/16111408.png">
+<meta property="og:image" content="http://yoursite.com/images/161115/16111501.png">
+<meta property="og:image" content="http://yoursite.com/images/161115/16111502.png">
+<meta property="og:image" content="http://yoursite.com/images/161115/16111503.png">
+<meta property="og:image" content="http://yoursite.com/images/161115/16111504.png">
+<meta property="og:image" content="http://yoursite.com/images/161115/16111505.png">
+<meta property="og:image" content="http://yoursite.com/images/161115/16111506.png">
+<meta property="og:updated_time" content="2017-09-26T10:11:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ferdbi">
+<meta name="twitter:title" content="Hadoop系列之（一）CentOS7安装配置及SSH无密码验证配置">
+<meta name="twitter:description" content="由于最近在进行关于Hadoop的学习，开始重新搭建一套Hadoop的环境，和之前自己搭建的环境的区别在于操作系统的版本，本次采用的为CentOS7.2的版本，7相对于6的版本改动较大。一些命令都不太一样，其中在其内核中加了Docker，因此在后期装相关软件时不需要重新安装，应该说也是Hadoop生态体系后期迁移的一个重点。故本次搭建采用CentOS7.2的最新版本。">
+<meta name="twitter:image" content="http://yoursite.com/images/161114/16111401.png">
   
     <link rel="alternative" href="/atom.xml" title="Ferdbi" type="application/atom+xml">
   
@@ -178,177 +198,143 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Python-Github-Crawler" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Hadoop-CentOS7-SSH" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/30/Python-Github-Crawler/">Python爬虫之Github项目爬取</a>
+    <h1 class="article-title" itemprop="name">
+      Hadoop系列之（一）CentOS7安装配置及SSH无密码验证配置
     </h1>
   
 
         
-        <a href="/2017/06/30/Python-Github-Crawler/" class="archive-article-date">
-  	<time datetime="2017-06-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-30</time>
+        <a href="/2016/11/14/Hadoop-CentOS7-SSH/" class="archive-article-date">
+  	<time datetime="2016-11-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><div class="message"><br>    应该有好几个月没有写博客了，原因好几个吧，一是由于课题的原因，二是自己状态的原因，写在本月末，激情的自己又回来了。代码已上传至Github <a target="_blank" href="https://github.com/conghaoyuan/GithubCrawler"><font color="red">GithubCrawler</font></a><br></div></p>
-<h3 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h3><blockquote><p>题目：爬取2017年1月1日到如今，github上，最流行的20个（100个？）大数据相关的项目。要求：请自定义/量化“最流行”</p>
+        <div class="message"><br>由于最近在进行关于Hadoop的学习，开始重新搭建一套Hadoop的环境，和之前自己搭建的环境的区别在于操作系统的版本，本次采用的为CentOS7.2的版本，7相对于6的版本改动较大。一些命令都不太一样，其中在其内核中加了Docker，因此在后期装相关软件时不需要重新安装，应该说也是Hadoop生态体系后期迁移的一个重点。故本次搭建采用CentOS7.2的最新版本。<br></div>
+
+<a id="more"></a>
+<h3 id="1-部署环境及相关版本软件"><a href="#1-部署环境及相关版本软件" class="headerlink" title="1.部署环境及相关版本软件"></a>1.部署环境及相关版本软件</h3><ul>
+<li>操作系统：MAC OS X EI Caption 10.11.6  </li>
+<li>CPU：2.7 GHz Intel Core i5</li>
+<li>内存：8 GB 1867 MHz DDR3</li>
+<li>虚拟机：Parallels Desktop 10</li>
+<li>操作系统：<a href="https://www.centos.org/download/" target="_blank" rel="external">CentOS-7-x86_64-DVD-1511.ISO</a></li>
+<li>JDK：<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="external">jdk-8u111-linux-x64.tar.gz</a></li>
+<li>其他软件：<br>hadoop-2.7.1.tar.gz    hbase-1.1.7-bin.tar.gz    apache-hive-1.2.1-bin.tar.gz    zookeeper-3.4.6.tar.gz<br>spark-1.5.1-bin-hadoop2.6.tgz    apache-storm-0.9.5.tar.gz<br>apache-flume-1.6.0-bin.tar.gz    sqoop-1.4.6.tar.gz    thrift-0.8.0.tar.gz<br>mongodb-linux-x86_64-rhel70-3.2.10.tgz    redis-3.2.5.tar.gz</li>
+</ul>
+<h3 id="2-CentOS7-安装"><a href="#2-CentOS7-安装" class="headerlink" title="2.CentOS7 安装"></a>2.CentOS7 安装</h3><p>PD这个软件在mac上算是特别好用的虚拟机了，用的当然是破解版的，目前有PD10的破解版，建议别升级，升级后不能用，也别将mac 升级成 mac sierra，升级后很多破解版的软件无法使用，吐槽一下苹果新版的MBP，那叫一个讽刺，自己的手机无法直接连接自己的电脑。</p>
+<p><img width="600px" src="/images/161114/16111401.png"><br><img width="600px" src="/images/161114/16111402.png"><br>这里要往上选择一下第一个安装，这样不用检查，省去很多时间。<br><img width="600px" src="/images/161114/16111403.png"><br><img width="600px" src="/images/161114/16111404.png"><br><img width="600px" src="/images/161114/16111405.png"><br>其中要设置一下时区，以及root的密码，以及一个用户及密码，这里所有的设置的用户为：hadoop，因为Hadoop环境建议不要直接用root用户直接去安装。这里有一点为分区的设置为题，就用默认的就行了。<br><img width="600px" src="/images/161114/16111406.png"><br>CentOS7安装有个好处为配置与安装分离，安装完基础的软件包后，再进行系统的配置。<br><img width="600px" src="/images/161114/16111407.png"></p>
+<p>以上为CentOS7安装完毕，然后就可以重启登录了。第一次登录可用root用户登录并且设置。</p>
+<h4 id="1-设置防火墙"><a href="#1-设置防火墙" class="headerlink" title="(1).设置防火墙"></a>(1).设置防火墙</h4><p>在CentOS6.*的版本及以前，service iptables stop<br>在CentOS7中</p>
+<blockquote><p>systemctl stop firewalld.service      #停止firewall<br>systemctl disable firewalld.service   #禁止firewall开机启动</p>
 </blockquote>
-<h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h3><blockquote><p>爬取项目为github上开源项目</p>
+<p>即可，具体详细设置可看笔记<a href="">CentOS7防火墙设置</a></p>
+<h4 id="2-hostname设置"><a href="#2-hostname设置" class="headerlink" title="(2).hostname设置"></a>(2).hostname设置</h4><p>查看当前机器名：</p>
+<blockquote><p>hostname</p>
 </blockquote>
-        
-          <a class="article-more-a" href="/2017/06/30/Python-Github-Crawler/#more">more >></a>
-        
+<p>默认为：<br><img width="200px" src="/images/161114/16111408.png"><br>修改<code>/etc/hostname</code>文件</p>
+<blockquote><p>vi /etc/hostname<br>删除：localhost.localdomain<br>添加：Master.Hadoop<br>保存退出:wq<br>其他两台分别为：<br>Slave1.Hadoop<br>Slave2.Hadoop</p>
+</blockquote>
+<h4 id="3-配置ip"><a href="#3-配置ip" class="headerlink" title="(3).配置ip"></a>(3).配置ip</h4><div class="message"><br>声明一下，我用的虚拟机为PD，用VMWare的同学在比较新的版本上可能找不到ifcfg-eth0配置文件，但是如果用NAT模式的话，会出现另一个配置文件ifcfg-eno…之类的。所以如果这样的话，配置VMWare相应的配置文件即可。默认的ONBOOY选项为yes，所以也不用配了。<br></div><br>CentOS6.*查看ip地址命令为：<code>ifconfig</code>，CentOS7修改为：<code>ip addr</code><br>因为所用PD虚拟机的网络设置为共享网络，故只需要在eth0配置文件将开机启动设置为<code>yes</code>即可，因每增加一台虚拟机，PD变会将ip进行自增，且下次开机不会改变。如果是物理机的话，就需要配置ip地址，相关的配置不做太多介绍，主要配置<code>IPADDR``NETMASK``GATEWAY</code>三个即可。<br><br><blockquote><p>vi /etc/sysconfig/network-scripts/ifcfg-eth0<br>将ONBOOT=no 变为 ONBOOT=yes<br>保存退出:wq<br>/etc/init.d/network restart    即可</p>
+</blockquote><br><br>此时，<code>ip addr</code>即可查看相应的ip。<br>本人搭建了三台虚拟机，其ip分别为：<br><br><blockquote><p>10.211.55.13    Master.Hadoop<br>10.211.55.14    Slave1.Hadoop<br>10.211.55.15    Slave2.Hadoop</p>
+</blockquote><br><br><br>#### (4).hosts配置<br>hosts相关配置如下：<br><blockquote><p>vi /etc/hosts<br>添加<br>10.211.55.13    Master.Hadoop<br>10.211.55.14    Slave1.Hadoop<br>10.211.55.15    Slave2.Hadoop<br>:wq</p>
+</blockquote><br><br>以上为CentOS7的安装及其配置，接下来为SSH无密码登录配置。<br>——————-<br><br>### 3.SSH无密码验证配置<br><br><div class="message"><br>Hadoop运行过程中需要管理远端Hadoop守护进程，在Hadoop启动以后，NameNode是通过SSH（Secure Shell）来启动和停止各个DataNode上的各种守护进程的。这就必须在节点之间执行指令的时候是不需要输入密码的形式，故我们需要配置SSH运用无密码公钥认证的形式，这样NameNode使用SSH无密码登录并启动DataName进程，同样原理，DataNode上也能使用SSH无密码登录到NameNode。<br></div>
+
+<p>默认安装好的系统上已经安装了ssh和rsync，可以通过以下命令查看：</p>
+<blockquote><p>rpm –qa | grep openssh<br>rpm –qa | grep rsync<br>如果提示没有安装，则需安装，如果安装跳过该步<br>yum install ssh   #安装SSH协议<br>yum install rsync  #rsync是一个远程数据同步工具，可通过LAN/WAN快速同步多台主机间的文件）<br>systemctl restart  sshd.service  #启动服务</p>
+</blockquote>
+<div class="message"><br>SSH无密码原理：Master（NameNode | JobTracker）作为客户端，要实现无密码公钥认证，连接到服务器Salve（DataNode | Tasktracker）上时，需要在Master上生成一个密钥对，包括一个公钥和一个私钥，而后将公钥复制到所有的Slave上。当Master通过SSH连接Salve时，Salve就会生成一个随机数并用Master的公钥对随机数进行加密，并发送给Master。Master收到加密数之后再用私钥解密，并将解密数回传给Slave，Slave确认解密数无误之后就允许Master进行连接了。这就是一个公钥认证过程，其间不需要用户手工输入密码。重要过程是将客户端Master复制到Slave上。<br>分为两部分：Master无密码登录所有的Slave 和  所有的Slave无密码登录到Master<br></div>
+
+<blockquote><p>这句话一定要看，一定要看，因为关系到配置ssh效率的问题。<br>原理说白了就是：需要将Master的公钥id_rsa.pub追加到所有的Slave的authorized_keys里边，将所有的Slave中的id_rsa.pub追加到Master的authorized_keys里边。<br>因此先配置Master和所有的Slave机器的sshd_config<br>vi /etc/ssh/sshd_config<br>将下边三个选项进行配置<br>RSAAuthentication yes # 启用 RSA 认证<br>PubkeyAuthentication yes # 启用公钥私钥配对认证方式<br>AuthorizedKeysFile .ssh/authorized_keys # 公钥文件路径（和上面生成的文件同）<br>保存退出:wq，后要将sshd服务重启<br>systemctl restart  sshd.service  #启动服务<br>然后分别在所有机器的hadoop用户的~/目录下分别建立.ssh文件夹并将其权限设为700 chmod 700 .ssh<br>~/ 目录为登录hadoop用户后，直接cd下的目录</p>
+</blockquote>
+<h4 id="1-Master无密码登录所有的Slave"><a href="#1-Master无密码登录所有的Slave" class="headerlink" title="1).Master无密码登录所有的Slave"></a>1).Master无密码登录所有的Slave</h4><p>1.在Master上生成密码对<br>在Master节点上执行：</p>
+<blockquote><p>ssh-keygen -t rsa -P ‘’</p>
+</blockquote>
+<p>这条命是生成其无密码密钥对，询问其保存路径时直接回车采用默认路径。生成的密钥对：id_rsa和id_rsa.pub，默认存储在”/home/hadoop/.ssh”目录下<br><img src="/images/161115/16111501.png"><br>查看”/home/hadoop/“下是否有”.ssh”文件夹，且”.ssh”文件下是否有两个刚生产的无密码密钥对。<br><img src="/images/161115/16111502.png"><br>2.接着在Master节点上做如下配置，把id_rsa.pub追加到授权的key里面去。</p>
+<blockquote><p>cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</p>
+</blockquote>
+<p><img src="/images/161115/16111503.png"><br>3.修改文件”authorized_keys”权限<br>权限的设置非常重要，因为不安全的设置安全设置，会让你不能使用RSA功能</p>
+<blockquote><p>chmod 600 ~/.ssh/authorized_keys</p>
+</blockquote>
+<p><img src="/images/161115/16111504.png"><br>4.使用hadoop普通用户验证是否成功</p>
+<blockquote><p>ssh localhost</p>
+</blockquote>
+<p><img src="/images/161115/16111505.png"></p>
+<p>从上图中得知无密码登录本级已经设置完毕。</p>
+<p>5.接下来是把公钥复制所有的Slave机器上，在下边的指令中，将公钥复制到了<code>.ssh</code>文件夹下，在初始状态下，Slave机器默认没有<code>.ssh</code>目录，Slave机器上没有创建的需要手动创建，已经有的忽略。使用下面的命令格式进行复制公钥：</p>
+<blockquote><p>scp ~/.ssh/id_rsa.pub 远程用户名@远程服务器IP:~/<br>例如：<br>scp ~/.ssh/id_rsa.pub hadoop@10.211.55.14:~/.ssh<br>scp ~/.ssh/id_rsa.pub hadoop@10.211.55.15:~/.ssh</p>
+</blockquote>
+<p>然后分别登录Slave1和Slave2两台机器，将<code>id_rsa.pub</code> 追加到<code>authorized_keys</code>中，并将其权限设置为<code>600</code>后删除id_rsa.pub</p>
+<blockquote><p>cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys<br>chmod 600 ~/.ssh/authorized_keys<br>rm ~/.ssh/id_rsa.pub</p>
+</blockquote>
+<p>6.在Master上hadoop用户登录Slave上的Hadoop用户验证是否成功</p>
+<blockquote><p>ssh hadoop@10.211.55.14<br>ssh hadoop@10.211.55.15</p>
+</blockquote>
+<p><img src="/images/161115/16111506.png"><br>不在提示让输入密码，表示Master登录所有Slave节点ssh配置成功。</p>
+<h4 id="2-Slave无密码登录所有的Master"><a href="#2-Slave无密码登录所有的Master" class="headerlink" title="2).Slave无密码登录所有的Master"></a>2).Slave无密码登录所有的Master</h4><p>和Master无密码登录所有Slave原理一样，就是把Slave的公钥追加到Master的”.ssh”文件夹下的”authorized_keys”中，记得是追加<code>（&gt;&gt;）</code>。<br>为了说明情况，我们现在就以”Slave1.Hadoop”无密码登录”Master.Hadoop”为例，进行一遍操作，也算是巩固一下前面所学知识，剩余的”Slave2.Hadoop”和”Slave3.Hadoop”就按照这个示例进行就可以了。</p>
+<p>1.首先创建”Slave1.Hadoop”自己的公钥和私钥，并把自己的公钥追加到”authorized_keys”文件中。用到的命令如下：</p>
+<blockquote><p>ssh-keygen -t rsa -P ‘’<br>回车<br>回车</p>
+</blockquote>
+<p>2.查看生成的公钥和私钥</p>
+<blockquote><p>cd<br>cd .ssh<br>ll</p>
+</blockquote>
+<p>3.将公钥id_rsa.pub发送到Master</p>
+<blockquote><p>scp id_rsa.pub hadoop@10.211.55.13:~/<br>注意：这里发送到了~/目录下，没有到.ssh目录下，因为Master .ssh 目录下已经有一个id_rsa.pub，为Master之前生成的，因此不能将其替换。</p>
+</blockquote>
+<p>4.登录到Master，将公钥追加到authorized_keys中，并修改其权限</p>
+<blockquote><p>cat ~/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys<br>chmod 600 ~/.ssh/authorized_keys<br>rm ~/id_rsa.pub     #追加完成后要删除id_rsa.pub</p>
+</blockquote>
+<p>5.验证Slave无密码登录到Master<br>在Slave机器上</p>
+<blockquote><p>ssh hadoop@10.211.55.13<br>注：本人机器 55.13为Master   55.14为Slave1  55.15为Slave2</p>
+</blockquote>
+<p>至此，SSH无密码通信已经配置完毕，我们可以发现一个规律，需要频繁登录Master和Slave上进行发送id_rsa.pub，为了简化，其实可以先将每一台的公钥生成，然后发送到Master中，发送的过程中可以起一个别的名字，别重名就行，然后在Master中统一将公钥追加到authorized key中。这样Master中算是有一份比较全的Slave   key了，再将这一份发送到所有的Slave节点，变省去了很多发送的步骤。</p>
+<p>如：</p>
+<blockquote><p>Slave1<br>scp ~/.ssh/id_rsa.pub hadoop@Master.Hadoop:~/.ssh/id_rsa1.pub<br>Slave2<br>scp ~/.ssh/id_rsa.pub hadoop@Master.Hadoop:~/.ssh/id_rsa2.pub<br>Master<br>cat ~/.ssh/id_rsa1.pub &gt;&gt; ~/.ssh/authorized_keys<br>cat ~/.ssh/id_rsa2.pub &gt;&gt; ~/.ssh/authorized_keys<br>然后将authorized_keys 发送到所有的Slave<br>scp ~/.ssh/authorized_keys hadoop@Slave1.Hadoop:~/.ssh<br>scp ~/.ssh/authorized_keys hadoop@Slave2.Hadoop:~/.ssh<br>并确保Slave上的authorized_keys权限为600即可</p>
+</blockquote>
+<p>本章结束，下一章，配置jdk以及hadoop。</p>
+<hr>
+
       
 
       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Python爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Github爬取</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/LANGUAGE//" class="article-tag-list-link color4">LANGUAGE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/30/Python-Github-Crawler/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/pay/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/pay/wechatpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-Hadoop-Storm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/19/Hadoop-Storm/">Hadoop系列之（六）Storm介绍与安装配置</a>
-    </h1>
-  
-
-        
-        <a href="/2016/11/19/Hadoop-Storm/" class="archive-article-date">
-  	<time datetime="2016-11-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div class="message"><br>    Apache Storm is a free and open source distributed realtime computation system. Storm makes it easy to reliably process unbounded streams of data, doing for realtime processing what Hadoop did for batch processing. Storm is simple, can be used with any programming language, and is a lot of fun to use!<br></div>
-
-<h3 id="Storm和Hadoop的区别"><a href="#Storm和Hadoop的区别" class="headerlink" title="Storm和Hadoop的区别"></a>Storm和Hadoop的区别</h3><table>
-<thead>
-<tr>
-<th style="text-align:left">Storm</th>
-<th style="text-align:left">Hadoop</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">实时计算</td>
-<td style="text-align:left">批处理</td>
-</tr>
-<tr>
-<td style="text-align:left">无状态的</td>
-<td style="text-align:left">有状态的</td>
-</tr>
-<tr>
-<td style="text-align:left">基于zk的主从模式</td>
-<td style="text-align:left">master：appmaster+yarnchild</td>
-</tr>
-<tr>
-<td style="text-align:left">流处理美妙处理数万消息</td>
-<td style="text-align:left">hadoop mr框架计算海量数据花费数分钟</td>
-</tr>
-<tr>
-<td style="text-align:left">topology运行直到user或程序故障</td>
-<td style="text-align:left">mr按序执行，最终执行结束</td>
-</tr>
-<tr>
-<td style="text-align:left">分布式+容错</td>
-<td style="text-align:left">分布式+容错</td>
-</tr>
-<tr>
-<td style="text-align:left">nimub或supervisor宕机后，重启后从stop的地方继续，没有影响</td>
-<td style="text-align:left">如果mr停止，所有data就丢失了</td>
-</tr>
-</tbody>
-</table>
-        
-          <a class="article-more-a" href="/2016/11/19/Hadoop-Storm/#more">more >></a>
-        
-      
-
       
     </div>
     <div class="article-info article-info-index">
@@ -367,7 +353,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Storm</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">CentOS7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
         		</li>
       		
 		</ul>
@@ -387,16 +377,84 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/19/Hadoop-Storm/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2016/11/14/Hadoop-CentOS7-SSH/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/11/15/Hadoop-JDK/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hadoop系列之（二）JDK和Hadoop安装配置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/19/阶段性的总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2016年中总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -411,315 +469,50 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-Hadoop-Spark" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/18/Hadoop-Spark/">Hadoop系列之（五）Spark介绍与安装配置</a>
-    </h1>
-  
-
-        
-        <a href="/2016/11/18/Hadoop-Spark/" class="archive-article-date">
-  	<time datetime="2016-11-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div class="message"><br>    已经约两周没有更新了，接下来会更新两三篇左右关于整个hadoop系统的安装配置，安装配置系列结束后开始进入实战原理篇。经过之前的几篇博客，应该可以对Linux系统有一个大致的概念了，起码在目录结构上，由于写博客在截图包括把图片变小方面甚是繁琐浪费时间，故在以后的博客中为了节省时间和空间，除了个别需要配图外，不再配有详细图片，望见谅。<br></div>
-
-<h3 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h3><h4 id="1-Spark介绍"><a href="#1-Spark介绍" class="headerlink" title="1.Spark介绍"></a>1.Spark介绍</h4><p>Spark是UC Berkeley AMP lab (加州大学伯克利分校的AMP实验室)所开源的类Hadoop MapReduce的通用并行框架，Spark，拥有Hadoop MapReduce所具有的优点；但不同于MapReduce的是Job中间输出结果可以保存在内存中，从而不再需要读写HDFS，因此Spark能更好地适用于数据挖掘与机器学习等需要迭代的MapReduce的算法。<br>
-        
-          <a class="article-more-a" href="/2016/11/18/Hadoop-Spark/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spark</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/大数据//" class="article-tag-list-link color4">大数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/18/Hadoop-Spark/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-部署环境及相关版本软件"><span class="toc-number">1.</span> <span class="toc-text">1.部署环境及相关版本软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-CentOS7-安装"><span class="toc-number">2.</span> <span class="toc-text">2.CentOS7 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-设置防火墙"><span class="toc-number">2.1.</span> <span class="toc-text">(1).设置防火墙</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-hostname设置"><span class="toc-number">2.2.</span> <span class="toc-text">(2).hostname设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-配置ip"><span class="toc-number">2.3.</span> <span class="toc-text">(3).配置ip</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Master无密码登录所有的Slave"><span class="toc-number">2.4.</span> <span class="toc-text">1).Master无密码登录所有的Slave</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Slave无密码登录所有的Master"><span class="toc-number">2.5.</span> <span class="toc-text">2).Slave无密码登录所有的Master</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-
-  
-    <article id="post-Hadoop-Hive" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/17/Hadoop-Hive/">Hadoop系列之（四）Hive安装配置</a>
-    </h1>
   
 
-        
-        <a href="/2016/11/17/Hadoop-Hive/" class="archive-article-date">
-  	<time datetime="2016-11-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div class="message"><br>    1.Hive 是建立在 Hadoop  上的数据仓库基础构架。它提供了一系列的工具，可以用来进行数据提取转化加载（ETL ），这是一种可以存储、查询和分析存储在 Hadoop  中的大规模数据的机制。Hive 定义了简单的类 SQL  查询语言，称为 QL ，它允许熟悉 SQL  的用户查询数据。同时，这个语言也允许熟悉 MapReduce  开发者的开发自定义的 mapper  和 reducer  来处理内建的 mapper 和 reducer  无法完成的复杂的分析工作。<br>    2.Hive是SQL解析引擎，它将SQL语句转译成M/R Job然后在Hadoop执行。<br>    3.Hive的表其实就是HDFS的目录/文件，按表名把文件夹分开。如果是分区表，则分区值是子文件夹，可以直接在M/R Job里使用这些数据。<br></div>
-
-<p>因为Hive为SQL的解析引擎，故需要数据库作为<code>存储引擎</code>，Hive默认使用内嵌<code>derby</code>数据库作为存储引擎，但<code>Derby</code>引擎的缺点为：一次只能打开一个会话，因此后边我们会把<code>Mysql</code>作为外置存储引擎，多用户可同时访问。<br>这里要说明一下，Hive只需要在一台机器上安装即可，原则上Hive可以在任意一台机器上安装，有的可能考虑Master的服务较多，会选择一台datanode进行安装，在这里我们就选择在Master上安装即可，同样，Mysql也只需要在Master上安装。</p>
-        
-          <a class="article-more-a" href="/2016/11/17/Hadoop-Hive/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hive</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/大数据//" class="article-tag-list-link color4">大数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/17/Hadoop-Hive/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-Hadoop-Zookeeper-HBase" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/16/Hadoop-Zookeeper-HBase/">Hadoop系列之（三）Zookeeper、HBase安装配置</a>
-    </h1>
   
 
-        
-        <a href="/2016/11/16/Hadoop-Zookeeper-HBase/" class="archive-article-date">
-  	<time datetime="2016-11-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div class="message"><br>Zookeeper管理Hadoop集群中的NameNode，HBase中HBaseMaster的选举，Servers之间状态同步等。单只HBase中ZooKeeper实例负责的工作就有：存储HBase的Schema，实时监控HRegionServer,存储所有Region的寻址入口，当然还有最常见的功能就是保证HBase集群中只有一个Master。<br></div>
-        
-          <a class="article-more-a" href="/2016/11/16/Hadoop-Zookeeper-HBase/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Zookeeper</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HBase</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/大数据//" class="article-tag-list-link color4">大数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/16/Hadoop-Zookeeper-HBase/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
+  
 
   
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'true'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+
   
+
 
 
           </div>
@@ -742,8 +535,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Ferdbi</title>
+  <title>Hadoop系列之（五）Spark介绍与安装配置 | Ferdbi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Ferdbi">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="已经约两周没有更新了，接下来会更新两三篇左右关于整个hadoop系统的安装配置，安装配置系列结束后开始进入实战原理篇。经过之前的几篇博客，应该可以对Linux系统有一个大致的概念了，起码在目录结构上，由于写博客在截图包括把图片变小方面甚是繁琐浪费时间，故在以后的博客中为了节省时间和空间，除了个别需要配图外，不再配有详细图片，望见谅。  一、简介1.Spark介绍Spark是UC Berke">
+<meta name="keywords" content="大数据,Hadoop,Spark">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hadoop系列之（五）Spark介绍与安装配置">
+<meta property="og:url" content="http://yoursite.com/2016/11/18/Hadoop-Spark/index.html">
 <meta property="og:site_name" content="Ferdbi">
+<meta property="og:description" content="已经约两周没有更新了，接下来会更新两三篇左右关于整个hadoop系统的安装配置，安装配置系列结束后开始进入实战原理篇。经过之前的几篇博客，应该可以对Linux系统有一个大致的概念了，起码在目录结构上，由于写博客在截图包括把图片变小方面甚是繁琐浪费时间，故在以后的博客中为了节省时间和空间，除了个别需要配图外，不再配有详细图片，望见谅。  一、简介1.Spark介绍Spark是UC Berke">
+<meta property="og:image" content="http://yoursite.com/images/161205/sparkstart.jpg">
+<meta property="og:updated_time" content="2017-09-26T09:53:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ferdbi">
+<meta name="twitter:title" content="Hadoop系列之（五）Spark介绍与安装配置">
+<meta name="twitter:description" content="已经约两周没有更新了，接下来会更新两三篇左右关于整个hadoop系统的安装配置，安装配置系列结束后开始进入实战原理篇。经过之前的几篇博客，应该可以对Linux系统有一个大致的概念了，起码在目录结构上，由于写博客在截图包括把图片变小方面甚是繁琐浪费时间，故在以后的博客中为了节省时间和空间，除了个别需要配图外，不再配有详细图片，望见谅。  一、简介1.Spark介绍Spark是UC Berke">
+<meta name="twitter:image" content="http://yoursite.com/images/161205/sparkstart.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Ferdbi" type="application/atom+xml">
   
@@ -178,255 +185,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Python-Github-Crawler" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Hadoop-Spark" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/30/Python-Github-Crawler/">Python爬虫之Github项目爬取</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/30/Python-Github-Crawler/" class="archive-article-date">
-  	<time datetime="2017-06-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><div class="message"><br>    应该有好几个月没有写博客了，原因好几个吧，一是由于课题的原因，二是自己状态的原因，写在本月末，激情的自己又回来了。代码已上传至Github <a target="_blank" href="https://github.com/conghaoyuan/GithubCrawler"><font color="red">GithubCrawler</font></a><br></div></p>
-<h3 id="题目介绍"><a href="#题目介绍" class="headerlink" title="题目介绍"></a>题目介绍</h3><blockquote><p>题目：爬取2017年1月1日到如今，github上，最流行的20个（100个？）大数据相关的项目。要求：请自定义/量化“最流行”</p>
-</blockquote>
-<h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h3><blockquote><p>爬取项目为github上开源项目</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2017/06/30/Python-Github-Crawler/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Python爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Github爬取</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔/LANGUAGE//" class="article-tag-list-link color4">LANGUAGE</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/30/Python-Github-Crawler/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-Hadoop-Storm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/19/Hadoop-Storm/">Hadoop系列之（六）Storm介绍与安装配置</a>
-    </h1>
-  
-
-        
-        <a href="/2016/11/19/Hadoop-Storm/" class="archive-article-date">
-  	<time datetime="2016-11-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div class="message"><br>    Apache Storm is a free and open source distributed realtime computation system. Storm makes it easy to reliably process unbounded streams of data, doing for realtime processing what Hadoop did for batch processing. Storm is simple, can be used with any programming language, and is a lot of fun to use!<br></div>
-
-<h3 id="Storm和Hadoop的区别"><a href="#Storm和Hadoop的区别" class="headerlink" title="Storm和Hadoop的区别"></a>Storm和Hadoop的区别</h3><table>
-<thead>
-<tr>
-<th style="text-align:left">Storm</th>
-<th style="text-align:left">Hadoop</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">实时计算</td>
-<td style="text-align:left">批处理</td>
-</tr>
-<tr>
-<td style="text-align:left">无状态的</td>
-<td style="text-align:left">有状态的</td>
-</tr>
-<tr>
-<td style="text-align:left">基于zk的主从模式</td>
-<td style="text-align:left">master：appmaster+yarnchild</td>
-</tr>
-<tr>
-<td style="text-align:left">流处理美妙处理数万消息</td>
-<td style="text-align:left">hadoop mr框架计算海量数据花费数分钟</td>
-</tr>
-<tr>
-<td style="text-align:left">topology运行直到user或程序故障</td>
-<td style="text-align:left">mr按序执行，最终执行结束</td>
-</tr>
-<tr>
-<td style="text-align:left">分布式+容错</td>
-<td style="text-align:left">分布式+容错</td>
-</tr>
-<tr>
-<td style="text-align:left">nimub或supervisor宕机后，重启后从stop的地方继续，没有影响</td>
-<td style="text-align:left">如果mr停止，所有data就丢失了</td>
-</tr>
-</tbody>
-</table>
-        
-          <a class="article-more-a" href="/2016/11/19/Hadoop-Storm/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Storm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/大数据//" class="article-tag-list-link color4">大数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/19/Hadoop-Storm/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-Hadoop-Spark" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/18/Hadoop-Spark/">Hadoop系列之（五）Spark介绍与安装配置</a>
+    <h1 class="article-title" itemprop="name">
+      Hadoop系列之（五）Spark介绍与安装配置
     </h1>
   
 
@@ -441,12 +207,111 @@
       
         <div class="message"><br>    已经约两周没有更新了，接下来会更新两三篇左右关于整个hadoop系统的安装配置，安装配置系列结束后开始进入实战原理篇。经过之前的几篇博客，应该可以对Linux系统有一个大致的概念了，起码在目录结构上，由于写博客在截图包括把图片变小方面甚是繁琐浪费时间，故在以后的博客中为了节省时间和空间，除了个别需要配图外，不再配有详细图片，望见谅。<br></div>
 
-<h3 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h3><h4 id="1-Spark介绍"><a href="#1-Spark介绍" class="headerlink" title="1.Spark介绍"></a>1.Spark介绍</h4><p>Spark是UC Berkeley AMP lab (加州大学伯克利分校的AMP实验室)所开源的类Hadoop MapReduce的通用并行框架，Spark，拥有Hadoop MapReduce所具有的优点；但不同于MapReduce的是Job中间输出结果可以保存在内存中，从而不再需要读写HDFS，因此Spark能更好地适用于数据挖掘与机器学习等需要迭代的MapReduce的算法。<br>
-        
-          <a class="article-more-a" href="/2016/11/18/Hadoop-Spark/#more">more >></a>
-        
+<h3 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h3><h4 id="1-Spark介绍"><a href="#1-Spark介绍" class="headerlink" title="1.Spark介绍"></a>1.Spark介绍</h4><p>Spark是UC Berkeley AMP lab (加州大学伯克利分校的AMP实验室)所开源的类Hadoop MapReduce的通用并行框架，Spark，拥有Hadoop MapReduce所具有的优点；但不同于MapReduce的是Job中间输出结果可以保存在内存中，从而不再需要读写HDFS，因此Spark能更好地适用于数据挖掘与机器学习等需要迭代的MapReduce的算法。<br><a id="more"></a><br>Spark,是一种”One Stack to rule them all”的大数据计算框架，期望使用一个技术完美的解决大数据领域的各项计算任务。Apache官方对Spark的定义：通用的大数据快速处理引擎。Spark除了一站式的特点之外，另外一个最重要的特点就是基于内存进行计算，从而让它的速度可以达到MapReduce、Hive的数倍甚至数十倍。<br>Spark使用Scala语言进行实现，它是一种面向对象、函数式编程语言，能够像操作本地集合对象一样轻松地操作分布式数据集（Scala 提供一个称为 Actor 的并行模型，其中Actor通过它的收件箱来发送和接收非同步信息而不是共享数据，该方式被称为：Shared Nothing 模型）。在Spark官网上介绍，它具有运行速度快、易用性好、通用性强和随处运行等特点。<br>现在已经有很多大公司正在生产环境下深度地使用Spark作为大数据的计算框架，包括eBay、Yahoo!、BAT、网易、京东、华为、大众点评、优酷土豆、搜狗等。Spark也获得了多个世界顶级的IT厂商的支持，包括IBM、Intel等。</p>
+<h4 id="2-Spark特点"><a href="#2-Spark特点" class="headerlink" title="2.Spark特点"></a>2.Spark特点</h4><ul>
+<li><code>速度快</code>：Spark基于内存进行计算（随着数据量的增大，也有部分计算基于磁盘，如shuffle）。</li>
+<li><code>易用性好</code>：Spark是基于RDD的计算模型，比Hadoop的基于MapReduce的计算模型更加易于理解和上手开发，实现各种复杂功能，比如二次排序、topn等复杂操作时，更加便捷。Spark不仅支持Scala编写应用程序，而且支持Java和Python等语言进行编写，特别是Scala是一种高效、可拓展的语言，能够用简洁的代码处理较为复杂的处理工作。</li>
+<li><code>通用性强</code>：Spark提供了Spark RDD、Spark SQL、Spark Streaming、MLlib、GraphX等技术组件，可以一站式的完成数据领域的离线批处理、交互式查询、实时流计算、机器学习与图计算等重要的任务和问题。</li>
+<li><code>集成Hadoop</code>：Spark并不是要成为一个大数据领域的”独裁者”，一个人霸占大数据领域的所有”地盘”,而是与Hadoop进行了高度的集成，两者可以完美的配合使用。Hadoop的HDFS、Hive、HBase负责存储，YARN负责资源调度；Spark负责大数据计算。实际上Hadoop+Spark的组合，是一种”double win”的组合。</li>
+</ul>
+<h4 id="3-Spark适用场景"><a href="#3-Spark适用场景" class="headerlink" title="3.Spark适用场景"></a>3.Spark适用场景</h4><p>目前大数据处理场景有以下几个类型：</p>
+<ul>
+<li>复杂的批量处理（Batch Data Processing），偏重点在于处理海量数据的能力，至于处理速度可忍受，通常的时间可能是在数十分钟到数小时；</li>
+<li>基于历史数据的交互式查询（Interactive Query），通常的时间在数十秒到数十分钟之间</li>
+<li>基于实时数据流的数据处理（Streaming Data Processing），通常在数百毫秒到数秒之间</li>
+</ul>
+<p>目前对以上三种场景需求都有比较成熟的处理框架：</p>
+<ul>
+<li>第一种情况可以用Hadoop的MapReduce来进行批量海量数据处理。</li>
+<li>第二种情况可以Impala进行交互式查询。</li>
+<li>第三种情况可以用Storm分布式处理框架处理实时流式数据。</li>
+</ul>
+<p>以上三者都是比较独立，各自一套维护成本比较高，而Spark的出现能够一站式平台满意以上需求。<br>通过以上分析，总结Spark场景有以下几个：</p>
+<ul>
+<li>Spark是基于内存的迭代计算框架，适用于需要多次操作特定数据集的应用场合。需要反复操作的次数越多，所需读取的数据量越大，受益越大，数据量小但是计算密集度较大的场合，受益就相对较小</li>
+<li>由于RDD的特性，Spark不适用那种异步细粒度更新状态的应用，例如web服务的存储或者是增量的web爬虫和索引。就是对于那种增量修改的应用模型不适合数据量不是特别大，但是要求实时统计分析需求</li>
+</ul>
+<h3 id="二、Spark安装部署"><a href="#二、Spark安装部署" class="headerlink" title="二、Spark安装部署"></a>二、Spark安装部署</h3><h4 id="1-Scala安装"><a href="#1-Scala安装" class="headerlink" title="1.Scala安装"></a>1.Scala安装</h4><p>在这里我提前将Scala安装包下载好了并且传到了我的master机器上，可登录<a href="http://www.scala-lang.org/download/" target="_blank" rel="external">Scala官方网站下载</a>,如果hadoop集群中可以连接外网，同样可以通过<code>wget</code>的方式获得，如下：</p>
+<blockquote><p>wget <a href="http://downloads.lightbend.com/scala/2.12.0/scala-2.12.0.tgz" target="_blank" rel="external">http://downloads.lightbend.com/scala/2.12.0/scala-2.12.0.tgz</a></p>
+</blockquote>
+<p>这里获得的是目前的最新版本。如果系统提示没有找到wget命令，可以通过<code>yum install wget</code>进行安装。</p>
+<h5 id="1-Scala解压安装"><a href="#1-Scala解压安装" class="headerlink" title="(1).Scala解压安装"></a>(1).Scala解压安装</h5><p>root用户操作，进入下载好的<code>scala-2.12.0.tgz</code>目录</p>
+<blockquote><p>mv scala-2.12.0.tgz /usr<br>tar zxvf scala-2.12.0.tgz<br>chown -R root:root scala-2.12.0<br>ln -s scala-2.12.0 scala</p>
+<font size="2" color="#DC143C"><b>注意: </b>这里我将其权限修改为root用户拥有，也就是说root级的权限，当在root用户里进行source 配置文件时，在hadoop用户层级却不能使用，需要将配置文件配置好后，在hadoop用户中也进行source /etc/profile，这样scala便作为一个系统级工具可以任意调用。这里最好建一个软链，后期更新版本只需要更改软链的指向即可，不需要更改环境变量里的配置</font>
+</blockquote>
+<h5 id="2-环境变量配置"><a href="#2-环境变量配置" class="headerlink" title="(2).环境变量配置"></a>(2).环境变量配置</h5><blockquote><p>vi /etc/profile</p>
+<p>#在后边添加</p>
+<p>#set scala environment<br>export SCALA_HOME=/usr/scala<br>export PATH=\$PATH:\$SCALA_HOME/bin<br>保存退出:wq<br>source /etc/profile</p>
+</blockquote>
+<h5 id="3-将Scala复制到其他节点"><a href="#3-将Scala复制到其他节点" class="headerlink" title="(3).将Scala复制到其他节点"></a>(3).将Scala复制到其他节点</h5><blockquote><p>scp -r /usr/scala-2.12.0 root@Slave1.Hadoop:/usr<br>scp -r /usr/scala-2.12.0 root@Slave2.Hadoop:/usr<br>并登录到其他slave节点，设置软链<br>ln -s /usr/scala-2.12.0 scala</p>
+</blockquote>
+<h5 id="4-验证Scala"><a href="#4-验证Scala" class="headerlink" title="(4).验证Scala"></a>(4).验证Scala</h5><p>在命令行中输入</p>
+<blockquote><p>scala -version<br>可以看到出现Scala的相关版本信息，则配置成功。<br>Scala code runner version 2.12.0 – Copyright 2002-2016, LAMP/EPFL and Lightbend, Inc.</p>
+</blockquote>
+<h4 id="2-Spark安装"><a href="#2-Spark安装" class="headerlink" title="2.Spark安装"></a>2.Spark安装</h4><p>由于Spark是基于Scala开发的，故相关的版本需要与Scala相关的版本对应，在Spark下载页选择不同的Spark版本可以看到相关的Scala版本要求，由于我们装的Hadoop为2.7.1版本，而2.7版本以上可以安装Spark2.0以上，因此下载对应的最新版本<a href="http://d3kbcqa49mib13.cloudfront.net/spark-2.0.2-bin-hadoop2.7.tgz" target="_blank" rel="external">spark-2.0.2-bin-hadoop2.7.tgz</a>。将下载好的spark包拷贝到Master相关的目录下，这里还是scp到<code>/usr/local/src</code>下。</p>
+<h5 id="1-Spark解压安装"><a href="#1-Spark解压安装" class="headerlink" title="(1).Spark解压安装"></a>(1).Spark解压安装</h5><p>root用户登录</p>
+<blockquote><p>cd /usr/local/src &amp;&amp; ls<br>cp spark-2.0.2-bin-hadoop2.7.tgz /usr<br>cd /usr<br>tar xf spark-2.0.2-bin-hadoop2.7.tgz<br>mv spark-2.0.2-bin-hadoop2.7 spark<br>chown -R hadoop:hadoop spark<br>rm spark-2.0.2-bin-hadoop2.7.tgz</p>
+</blockquote>
+<h5 id="2-Spark配置"><a href="#2-Spark配置" class="headerlink" title="(2).Spark配置"></a>(2).Spark配置</h5><p>配置<code>log4j.properties</code></p>
+<blockquote><p>cd /usr/spark/conf<br>cp log4j.properties.template log4j.properties<br>vi log4j.properties<br>修改 log4j.rootCategory=WARN, console</p>
+</blockquote>
+<p>配置<code>spark-env.sh</code></p>
+<blockquote><p>cd /usr/spark/conf<br>mv spark-env.sh.template spark-env.sh<br>vi spark-env.sh<br>在后边添加<br>export JAVA_HOME=/usr/java/jdk1.8.0_111<br>export HADOOP_CONF_DIR=/usr/hadoop/etc/hadoop                  #hadoop配置文件的路径<br>export SPARK_MASTER_HOST=Master.Hadoop                         #spark的master主机名<br>export SPARK_MASTER_PORT=7077<br>export SPARK_WORKER_CORES=1<br>export SPARK_WORKER_INSTANCES=1<br>export SPARK_WORKER_MEMORY=512M<br>保存退出:wq</p>
+</blockquote>
+<p>配置<code>slaves</code></p>
+<blockquote><p>mv slaves.template slaves<br>vi slaves<br>删除localhost，添加slave节点hostname<br>Slave1.Hadoop<br>Slave2.Hadoop<br>保存退出:wq</p>
+</blockquote>
+<h5 id="3-添加到环境变量"><a href="#3-添加到环境变量" class="headerlink" title="(3).添加到环境变量"></a>(3).添加到环境变量</h5><blockquote><p>#set spark environment<br>export SPARK_HOME=/usr/spark<br>export PATH=$PATH:$SPARK_HOME/bin      #注意这里只添加了bin的路径，没有添加sbin，因为spark的启动命令和hadoop启动命令一样，所以如果都添加便难以区分。</p>
+</blockquote>
+<h5 id="4-复制到其他节点"><a href="#4-复制到其他节点" class="headerlink" title="(4).复制到其他节点"></a>(4).复制到其他节点</h5><blockquote><p>scp -r /usr/spark root@Slave1.Hadoop:/usr<br>scp -r /usr/spark root@Slave2.Hadoop:/usr<br>将配置文件复制到其他slave节点<br>scp /etc/profile root@Slave1.Hadoop:/usr<br>scp /etc/profile root@Slave2.Hadoop:/usr<br>同样需在所有的节点中让配置文件生效<br>source /etc/profile<br>分别在所有节点的hadoop和root用户中source /etc/profile，环境变量更新让其生效</p>
+</blockquote>
+<h5 id="5-启动验证"><a href="#5-启动验证" class="headerlink" title="(5).启动验证"></a>(5).启动验证</h5><blockquote><p>#启动（由于和hadoop的启动shell名字一样，需要注意）<br>cd /usr/spark/sbin<br>./start-all.sh</p>
+</blockquote>
+<p>会看到如下结果：</p>
+<blockquote><p>[hadoop@Master sbin]$ ./start-all.sh<br>starting org.apache.spark.deploy.master.Master, logging to /usr/spark/logs/spark-hadoop-org.apache.spark.deploy.master.Master-1-Master.Hadoop.out<br>Slave2.Hadoop: starting org.apache.spark.deploy.worker.Worker, logging to /usr/spark/logs/spark-hadoop-org.apache.spark.deploy.worker.Worker-1-Slave2.Hadoop.out<br>Slave1.Hadoop: starting org.apache.spark.deploy.worker.Worker, logging to /usr/spark/logs/spark-hadoop-org.apache.spark.deploy.worker.Worker-1-Slave1.Hadoop.out</p>
+</blockquote>
+<p><code>jps</code>查看进程会发现master上多出<code>Master</code>进程，在slave上会多出<code>Worker</code>进程。则表示spark安装启动成功。</p>
+<blockquote><p>#可以通过物理机在浏览器中查看集群状态<br><a href="http://10.211.55.13:8080/" target="_blank" rel="external">http://10.211.55.13:8080/</a></p>
+</blockquote>
+<p>如图所示：<br><img width="600px" src="/images/161205/sparkstart.jpg"></p>
+<blockquote><p>#命令行交互验证<br>./bin/spark-shell<br>scala&gt; val textFile = sc.textFile(“file:////usr/spark/README.md”)<br>textFile: org.apache.spark.rdd.RDD[String] = file:////usr/spark/README.md MapPartitionsRDD[1] at textFile at <console>:24<br>scala&gt; textFile.count()<br>res0: Long = 99<br>scala&gt; textFile.first()<br>res1: String = # Apache Spark<br>:q或者:quit   可推出Scala</console></p>
+</blockquote>
+<hr>
+<p>至此，spark安装配置成功，接下来安装storm。</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/pay/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/pay/wechatpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -485,16 +350,84 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/18/Hadoop-Spark/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2016/11/18/Hadoop-Spark/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2016/11/19/Hadoop-Storm/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Hadoop系列之（六）Storm介绍与安装配置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/17/Hadoop-Hive/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hadoop系列之（四）Hive安装配置</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -509,217 +442,50 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-
-  
-    <article id="post-Hadoop-Hive" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/17/Hadoop-Hive/">Hadoop系列之（四）Hive安装配置</a>
-    </h1>
-  
-
-        
-        <a href="/2016/11/17/Hadoop-Hive/" class="archive-article-date">
-  	<time datetime="2016-11-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div class="message"><br>    1.Hive 是建立在 Hadoop  上的数据仓库基础构架。它提供了一系列的工具，可以用来进行数据提取转化加载（ETL ），这是一种可以存储、查询和分析存储在 Hadoop  中的大规模数据的机制。Hive 定义了简单的类 SQL  查询语言，称为 QL ，它允许熟悉 SQL  的用户查询数据。同时，这个语言也允许熟悉 MapReduce  开发者的开发自定义的 mapper  和 reducer  来处理内建的 mapper 和 reducer  无法完成的复杂的分析工作。<br>    2.Hive是SQL解析引擎，它将SQL语句转译成M/R Job然后在Hadoop执行。<br>    3.Hive的表其实就是HDFS的目录/文件，按表名把文件夹分开。如果是分区表，则分区值是子文件夹，可以直接在M/R Job里使用这些数据。<br></div>
-
-<p>因为Hive为SQL的解析引擎，故需要数据库作为<code>存储引擎</code>，Hive默认使用内嵌<code>derby</code>数据库作为存储引擎，但<code>Derby</code>引擎的缺点为：一次只能打开一个会话，因此后边我们会把<code>Mysql</code>作为外置存储引擎，多用户可同时访问。<br>这里要说明一下，Hive只需要在一台机器上安装即可，原则上Hive可以在任意一台机器上安装，有的可能考虑Master的服务较多，会选择一台datanode进行安装，在这里我们就选择在Master上安装即可，同样，Mysql也只需要在Master上安装。</p>
-        
-          <a class="article-more-a" href="/2016/11/17/Hadoop-Hive/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hive</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/大数据//" class="article-tag-list-link color4">大数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/17/Hadoop-Hive/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、简介"><span class="toc-number">1.</span> <span class="toc-text">一、简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Spark介绍"><span class="toc-number">1.1.</span> <span class="toc-text">1.Spark介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Spark特点"><span class="toc-number">1.2.</span> <span class="toc-text">2.Spark特点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Spark适用场景"><span class="toc-number">1.3.</span> <span class="toc-text">3.Spark适用场景</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、Spark安装部署"><span class="toc-number">2.</span> <span class="toc-text">二、Spark安装部署</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Scala安装"><span class="toc-number">2.1.</span> <span class="toc-text">1.Scala安装</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-Scala解压安装"><span class="toc-number">2.1.1.</span> <span class="toc-text">(1).Scala解压安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-环境变量配置"><span class="toc-number">2.1.2.</span> <span class="toc-text">(2).环境变量配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-将Scala复制到其他节点"><span class="toc-number">2.1.3.</span> <span class="toc-text">(3).将Scala复制到其他节点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-验证Scala"><span class="toc-number">2.1.4.</span> <span class="toc-text">(4).验证Scala</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Spark安装"><span class="toc-number">2.2.</span> <span class="toc-text">2.Spark安装</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-Spark解压安装"><span class="toc-number">2.2.1.</span> <span class="toc-text">(1).Spark解压安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-Spark配置"><span class="toc-number">2.2.2.</span> <span class="toc-text">(2).Spark配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-添加到环境变量"><span class="toc-number">2.2.3.</span> <span class="toc-text">(3).添加到环境变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-复制到其他节点"><span class="toc-number">2.2.4.</span> <span class="toc-text">(4).复制到其他节点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-启动验证"><span class="toc-number">2.2.5.</span> <span class="toc-text">(5).启动验证</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-
-  
-    <article id="post-Hadoop-Zookeeper-HBase" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/16/Hadoop-Zookeeper-HBase/">Hadoop系列之（三）Zookeeper、HBase安装配置</a>
-    </h1>
   
 
-        
-        <a href="/2016/11/16/Hadoop-Zookeeper-HBase/" class="archive-article-date">
-  	<time datetime="2016-11-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-11-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div class="message"><br>Zookeeper管理Hadoop集群中的NameNode，HBase中HBaseMaster的选举，Servers之间状态同步等。单只HBase中ZooKeeper实例负责的工作就有：存储HBase的Schema，实时监控HRegionServer,存储所有Region的寻址入口，当然还有最常见的功能就是保证HBase集群中只有一个Master。<br></div>
-        
-          <a class="article-more-a" href="/2016/11/16/Hadoop-Zookeeper-HBase/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Zookeeper</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HBase</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/大数据//" class="article-tag-list-link color4">大数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/11/16/Hadoop-Zookeeper-HBase/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
+  
 
   
+
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'true'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
   
+
+  
+
 
 
           </div>
@@ -742,8 +508,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
