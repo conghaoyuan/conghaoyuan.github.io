@@ -5,56 +5,58 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="http://ferdbi.com">
   <title>Hadoop系列之（三）Zookeeper、HBase安装配置 | Ferdbi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Zookeeper管理Hadoop集群中的NameNode，HBase中HBaseMaster的选举，Servers之间状态同步等。单只HBase中ZooKeeper实例负责的工作就有：存储HBase的Schema，实时监控HRegionServer,存储所有Region的寻址入口，当然还有最常见的功能就是保证HBase集群中只有一个Master。">
 <meta name="keywords" content="大数据,Hadoop,Zookeeper,HBase">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop系列之（三）Zookeeper、HBase安装配置">
-<meta property="og:url" content="http://yoursite.com/2016/11/16/Hadoop-Zookeeper-HBase/index.html">
+<meta property="og:url" content="http://ferdbi.com/2016/11/16/Hadoop-Zookeeper-HBase/index.html">
 <meta property="og:site_name" content="Ferdbi">
 <meta property="og:description" content="Zookeeper管理Hadoop集群中的NameNode，HBase中HBaseMaster的选举，Servers之间状态同步等。单只HBase中ZooKeeper实例负责的工作就有：存储HBase的Schema，实时监控HRegionServer,存储所有Region的寻址入口，当然还有最常见的功能就是保证HBase集群中只有一个Master。">
-<meta property="og:image" content="http://yoursite.com/images/161115/zookeepercpzxvf.png">
-<meta property="og:image" content="http://yoursite.com/images/161115/zookeeperllchown.png">
-<meta property="og:image" content="http://yoursite.com/images/161115/zookeeperdatapwd.png">
-<meta property="og:image" content="http://yoursite.com/images/161115/zookeepermyid.png">
-<meta property="og:image" content="http://yoursite.com/images/161115/zookeeperconf.png">
-<meta property="og:image" content="http://yoursite.com/images/161115/zookeepercfg.png">
-<meta property="og:image" content="http://yoursite.com/images/161115/zookeepermyid.png">
-<meta property="og:image" content="http://yoursite.com/images/161115/zookeeperstart.png">
-<meta property="og:image" content="http://yoursite.com/images/161115/zookeeperstatus.png">
-<meta property="og:image" content="http://yoursite.com/images/161115/zookeeperstatus2.png">
-<meta property="og:image" content="http://yoursite.com/images/161116/hbasetargz.png">
-<meta property="og:image" content="http://yoursite.com/images/161116/hbasechown.png">
-<meta property="og:image" content="http://yoursite.com/images/161116/hbaseconf.png">
-<meta property="og:image" content="http://yoursite.com/images/161116/hbasejdk.png">
-<meta property="og:image" content="http://yoursite.com/images/161116/hbasepid.png">
-<meta property="og:image" content="http://yoursite.com/images/161116/hbasepiddir.png">
-<meta property="og:image" content="http://yoursite.com/images/161116/hbaseerrorpid.png">
-<meta property="og:image" content="http://yoursite.com/images/161116/hbaseenvpermsize1.png">
-<meta property="og:image" content="http://yoursite.com/images/161116/hbasepermsizeerror.png">
-<meta property="og:image" content="http://yoursite.com/images/161116/hbase-site.png">
-<meta property="og:image" content="http://yoursite.com/images/161116/hbaseregoin.png">
-<meta property="og:image" content="http://yoursite.com/images/161116/hbasestart.png">
-<meta property="og:image" content="http://yoursite.com/images/161116/hbaseslave.png">
-<meta property="og:image" content="http://yoursite.com/images/161121/ntpoldtime.png">
-<meta property="og:image" content="http://yoursite.com/images/161121/ntpqa.png">
-<meta property="og:image" content="http://yoursite.com/images/161121/ntpconf.png">
-<meta property="og:image" content="http://yoursite.com/images/161121/ntpstart.png">
-<meta property="og:image" content="http://yoursite.com/images/161121/ntprestart.png">
-<meta property="og:image" content="http://yoursite.com/images/161121/ntpslave1.png">
-<meta property="og:image" content="http://yoursite.com/images/161121/ntpslave2.png">
-<meta property="og:image" content="http://yoursite.com/images/161121/hbasesucess.png">
-<meta property="og:image" content="http://yoursite.com/images/161121/hbasesucessslave.png">
+<meta property="og:image" content="http://ferdbi.com/images/161115/zookeepercpzxvf.png">
+<meta property="og:image" content="http://ferdbi.com/images/161115/zookeeperllchown.png">
+<meta property="og:image" content="http://ferdbi.com/images/161115/zookeeperdatapwd.png">
+<meta property="og:image" content="http://ferdbi.com/images/161115/zookeepermyid.png">
+<meta property="og:image" content="http://ferdbi.com/images/161115/zookeeperconf.png">
+<meta property="og:image" content="http://ferdbi.com/images/161115/zookeepercfg.png">
+<meta property="og:image" content="http://ferdbi.com/images/161115/zookeepermyid.png">
+<meta property="og:image" content="http://ferdbi.com/images/161115/zookeeperstart.png">
+<meta property="og:image" content="http://ferdbi.com/images/161115/zookeeperstatus.png">
+<meta property="og:image" content="http://ferdbi.com/images/161115/zookeeperstatus2.png">
+<meta property="og:image" content="http://ferdbi.com/images/161116/hbasetargz.png">
+<meta property="og:image" content="http://ferdbi.com/images/161116/hbasechown.png">
+<meta property="og:image" content="http://ferdbi.com/images/161116/hbaseconf.png">
+<meta property="og:image" content="http://ferdbi.com/images/161116/hbasejdk.png">
+<meta property="og:image" content="http://ferdbi.com/images/161116/hbasepid.png">
+<meta property="og:image" content="http://ferdbi.com/images/161116/hbasepiddir.png">
+<meta property="og:image" content="http://ferdbi.com/images/161116/hbaseerrorpid.png">
+<meta property="og:image" content="http://ferdbi.com/images/161116/hbaseenvpermsize1.png">
+<meta property="og:image" content="http://ferdbi.com/images/161116/hbasepermsizeerror.png">
+<meta property="og:image" content="http://ferdbi.com/images/161116/hbase-site.png">
+<meta property="og:image" content="http://ferdbi.com/images/161116/hbaseregoin.png">
+<meta property="og:image" content="http://ferdbi.com/images/161116/hbasestart.png">
+<meta property="og:image" content="http://ferdbi.com/images/161116/hbaseslave.png">
+<meta property="og:image" content="http://ferdbi.com/images/161121/ntpoldtime.png">
+<meta property="og:image" content="http://ferdbi.com/images/161121/ntpqa.png">
+<meta property="og:image" content="http://ferdbi.com/images/161121/ntpconf.png">
+<meta property="og:image" content="http://ferdbi.com/images/161121/ntpstart.png">
+<meta property="og:image" content="http://ferdbi.com/images/161121/ntprestart.png">
+<meta property="og:image" content="http://ferdbi.com/images/161121/ntpslave1.png">
+<meta property="og:image" content="http://ferdbi.com/images/161121/ntpslave2.png">
+<meta property="og:image" content="http://ferdbi.com/images/161121/hbasesucess.png">
+<meta property="og:image" content="http://ferdbi.com/images/161121/hbasesucessslave.png">
 <meta property="og:updated_time" content="2017-09-26T09:53:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop系列之（三）Zookeeper、HBase安装配置">
 <meta name="twitter:description" content="Zookeeper管理Hadoop集群中的NameNode，HBase中HBaseMaster的选举，Servers之间状态同步等。单只HBase中ZooKeeper实例负责的工作就有：存储HBase的Schema，实时监控HRegionServer,存储所有Region的寻址入口，当然还有最常见的功能就是保证HBase集群中只有一个Master。">
-<meta name="twitter:image" content="http://yoursite.com/images/161115/zookeepercpzxvf.png">
+<meta name="twitter:image" content="http://ferdbi.com/images/161115/zookeepercpzxvf.png">
   
     <link rel="alternative" href="/atom.xml" title="Ferdbi" type="application/atom+xml">
   
+  
+    <link rel="icon" href="/favicon.png">
   
   <link rel="stylesheet" type="text/css" href="/./main.507b3a.css">
   <style type="text/css">
@@ -473,7 +475,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2016/11/16/Hadoop-Zookeeper-HBase/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://ferdbi.com/2016/11/16/Hadoop-Zookeeper-HBase/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -697,15 +699,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Storm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hive</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Spark</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Storm</a>
               </li>
              
               <li class="article-tag-list-item">

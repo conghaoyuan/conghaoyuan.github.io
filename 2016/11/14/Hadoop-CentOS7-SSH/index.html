@@ -5,38 +5,40 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="http://ferdbi.com">
   <title>Hadoop系列之（一）CentOS7安装配置及SSH无密码验证配置 | Ferdbi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="由于最近在进行关于Hadoop的学习，开始重新搭建一套Hadoop的环境，和之前自己搭建的环境的区别在于操作系统的版本，本次采用的为CentOS7.2的版本，7相对于6的版本改动较大。一些命令都不太一样，其中在其内核中加了Docker，因此在后期装相关软件时不需要重新安装，应该说也是Hadoop生态体系后期迁移的一个重点。故本次搭建采用CentOS7.2的最新版本。">
 <meta name="keywords" content="大数据,Hadoop,CentOS7,SSH">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop系列之（一）CentOS7安装配置及SSH无密码验证配置">
-<meta property="og:url" content="http://yoursite.com/2016/11/14/Hadoop-CentOS7-SSH/index.html">
+<meta property="og:url" content="http://ferdbi.com/2016/11/14/Hadoop-CentOS7-SSH/index.html">
 <meta property="og:site_name" content="Ferdbi">
 <meta property="og:description" content="由于最近在进行关于Hadoop的学习，开始重新搭建一套Hadoop的环境，和之前自己搭建的环境的区别在于操作系统的版本，本次采用的为CentOS7.2的版本，7相对于6的版本改动较大。一些命令都不太一样，其中在其内核中加了Docker，因此在后期装相关软件时不需要重新安装，应该说也是Hadoop生态体系后期迁移的一个重点。故本次搭建采用CentOS7.2的最新版本。">
-<meta property="og:image" content="http://yoursite.com/images/161114/16111401.png">
-<meta property="og:image" content="http://yoursite.com/images/161114/16111402.png">
-<meta property="og:image" content="http://yoursite.com/images/161114/16111403.png">
-<meta property="og:image" content="http://yoursite.com/images/161114/16111404.png">
-<meta property="og:image" content="http://yoursite.com/images/161114/16111405.png">
-<meta property="og:image" content="http://yoursite.com/images/161114/16111406.png">
-<meta property="og:image" content="http://yoursite.com/images/161114/16111407.png">
-<meta property="og:image" content="http://yoursite.com/images/161114/16111408.png">
-<meta property="og:image" content="http://yoursite.com/images/161115/16111501.png">
-<meta property="og:image" content="http://yoursite.com/images/161115/16111502.png">
-<meta property="og:image" content="http://yoursite.com/images/161115/16111503.png">
-<meta property="og:image" content="http://yoursite.com/images/161115/16111504.png">
-<meta property="og:image" content="http://yoursite.com/images/161115/16111505.png">
-<meta property="og:image" content="http://yoursite.com/images/161115/16111506.png">
+<meta property="og:image" content="http://ferdbi.com/images/161114/16111401.png">
+<meta property="og:image" content="http://ferdbi.com/images/161114/16111402.png">
+<meta property="og:image" content="http://ferdbi.com/images/161114/16111403.png">
+<meta property="og:image" content="http://ferdbi.com/images/161114/16111404.png">
+<meta property="og:image" content="http://ferdbi.com/images/161114/16111405.png">
+<meta property="og:image" content="http://ferdbi.com/images/161114/16111406.png">
+<meta property="og:image" content="http://ferdbi.com/images/161114/16111407.png">
+<meta property="og:image" content="http://ferdbi.com/images/161114/16111408.png">
+<meta property="og:image" content="http://ferdbi.com/images/161115/16111501.png">
+<meta property="og:image" content="http://ferdbi.com/images/161115/16111502.png">
+<meta property="og:image" content="http://ferdbi.com/images/161115/16111503.png">
+<meta property="og:image" content="http://ferdbi.com/images/161115/16111504.png">
+<meta property="og:image" content="http://ferdbi.com/images/161115/16111505.png">
+<meta property="og:image" content="http://ferdbi.com/images/161115/16111506.png">
 <meta property="og:updated_time" content="2017-09-26T10:11:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop系列之（一）CentOS7安装配置及SSH无密码验证配置">
 <meta name="twitter:description" content="由于最近在进行关于Hadoop的学习，开始重新搭建一套Hadoop的环境，和之前自己搭建的环境的区别在于操作系统的版本，本次采用的为CentOS7.2的版本，7相对于6的版本改动较大。一些命令都不太一样，其中在其内核中加了Docker，因此在后期装相关软件时不需要重新安装，应该说也是Hadoop生态体系后期迁移的一个重点。故本次搭建采用CentOS7.2的最新版本。">
-<meta name="twitter:image" content="http://yoursite.com/images/161114/16111401.png">
+<meta name="twitter:image" content="http://ferdbi.com/images/161114/16111401.png">
   
     <link rel="alternative" href="/atom.xml" title="Ferdbi" type="application/atom+xml">
   
+  
+    <link rel="icon" href="/favicon.png">
   
   <link rel="stylesheet" type="text/css" href="/./main.507b3a.css">
   <style type="text/css">
@@ -427,7 +429,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2016/11/14/Hadoop-CentOS7-SSH/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://ferdbi.com/2016/11/14/Hadoop-CentOS7-SSH/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -651,15 +653,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Storm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hive</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Spark</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Storm</a>
               </li>
              
               <li class="article-tag-list-item">
