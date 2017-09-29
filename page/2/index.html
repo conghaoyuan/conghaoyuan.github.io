@@ -384,28 +384,39 @@
 
 
   
-    <article id="post-Test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Java-multithreaded-thread-process" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/19/Test/">Test</a>
+      <a class="article-title" href="/2016/09/06/Java-multithreaded-thread-process/">Java多线程--线程和进程的区别</a>
     </h1>
   
 
         
-        <a href="/2016/07/19/Test/" class="archive-article-date">
-  	<time datetime="2016-07-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-19</time>
+        <a href="/2016/09/06/Java-multithreaded-thread-process/" class="archive-article-date">
+  	<time datetime="2016-09-05T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <div class="message"><br>    Blog Test……<br></div>
+        <h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h3><p><code>进程</code>是具有一定独立功能的程序关于某个数据集合上的一次运行活动，<code>进程</code>是系统进行<code>资源分配</code>和<code>调度</code>的一个<code>独立单位</code>。<br><code>线程</code>是进程的一个实体,是CPU调度和分派的基本单位,它是比进程更小的能独立运行的基本单位.线程自己基本上不拥有系统资源,只拥有一点在运行中必不可少的资源(如程序计数器,一组寄存器和栈),但是它可与同属一个进程的其他的线程共享进程所拥有的全部资源。</p>
+<h3 id="2-关系"><a href="#2-关系" class="headerlink" title="2.关系"></a>2.关系</h3><p>一个线程可以创建和撤销另一个线程;同一个进程中的多个线程之间可以并发执行.<br>相对进程而言，线程是一个更加接近于执行体的概念，它可以与同进程中的其他线程共享数据，但拥有自己的栈空间，拥有独立的执行序列。</p>
+<h3 id="3-区别"><a href="#3-区别" class="headerlink" title="3.区别"></a>3.区别</h3><p><code>进程</code>和<code>线程</code>的主要差别在于它们是不同的操作系统资源管理方式。进程有独立的地址空间，一个进程崩溃后，在保护模式下不会对其它进程产生影响，而线程只是一个进程中的不同执行路径。线程有自己的堆栈和局部变量，但线程之间没有单独的地址空间，一个线程死掉就等于整个进程死掉，所以多进程的程序要比多线程的程序健壮，但在进程切换时，耗费资源较大，效率要差一些。但对于一些要求同时进行并且又要共享某些变量的并发操作，只能用线程，不能用进程。</p>
+<pre><code>1) 简而言之,一个程序至少有一个进程,一个进程至少有一个线程.
 
+2) 线程的划分尺度小于进程，使得多线程程序的并发性高。
+
+3) 另外，进程在执行过程中拥有独立的内存单元，而多个线程共享内存，从而极大地提高了程序的运行效率。
+
+4) 线程在执行过程中与进程还是有区别的。每个独立的线程有一个程序运行的入口、顺序执行序列和程序的出口。但是线程不能够独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制。
+
+5) 从逻辑角度来看，多线程的意义在于一个应用程序中，有多个执行部分可以同时执行。但操作系统并没有将多个线程看做多个独立的应用，来实现进程的调度和管理以及资源分配。这就是进程和线程的重要区别。
+</code></pre><h3 id="4-优缺点"><a href="#4-优缺点" class="headerlink" title="4.优缺点"></a>4.优缺点</h3><p><code>线程</code>和<code>进程</code>在使用上各有优缺点：线程执行开销小，但不利于资源的管理和保护；而进程正相反。同时，线程适合于在SMP机器上运行，而进程则可以跨机器迁移。</p>
 
       
 
@@ -414,33 +425,36 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">进程</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">线程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/大数据//" class="article-tag-list-link color4">大数据</a>
+        			<a href="/categories/LANGUAGE//" class="article-tag-list-link color4">LANGUAGE</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/大数据/随笔//" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/大数据/随笔/算法//" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/大数据/随笔/算法/机器学习//" class="article-tag-list-link color5">机器学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/大数据/随笔/算法/机器学习/LANGUAGE//" class="article-tag-list-link color4">LANGUAGE</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/大数据/随笔/算法/机器学习/LANGUAGE/其他//" class="article-tag-list-link color3">其他</a>
+        			<a href="/categories/LANGUAGE/随笔//" class="article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
@@ -449,7 +463,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/19/Test/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/09/06/Java-multithreaded-thread-process/">展开全文 >></a>
         </p>
       
 
@@ -480,19 +494,116 @@
 
 
   
-    <article id="post-阶段性的总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-mac-forgot-password" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/19/阶段性的总结/">2016年中总结</a>
+      <a class="article-title" href="/2016/07/24/mac-forgot-password/">mac忘记密码后删除系统配置文件登录</a>
     </h1>
   
 
         
-        <a href="/2016/07/19/阶段性的总结/" class="archive-article-date">
+        <a href="/2016/07/24/mac-forgot-password/" class="archive-article-date">
+  	<time datetime="2016-07-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div class="message"><br>    一个同学将自己的mac装了双系统，平常只用windows，mac osx的系统基本没有过，密码也忘记了。早上想上osx玩玩，奈何密码各种不正确。搜了篇关于忘记mac密码怎么办的文章。照着给她处理了一下，成功进入mac。<br>    简单来说就是删除了mac的用户系统配置文件。让系统回到初始设置的地方。<br></div>
+
+<p>这个时候要用到终端了，也就是说平常常用的Terminal，进入Terminal有两种方式，说白了就是进入命令行模式，一种是开机的时候按住<code>Command+s</code>，直到系统进入黑屏然后窗口出现一些命令行为止，这时候根据系统环境的不一致，大致会进入<code>root</code>或者<code>bash</code>管理模式，其实都差不多。可能是bash的权限更加大一些。</p>
+<ul>
+<li>第一步：执行硬盘检测<code>fsck -y</code>       //选项指定检测每个文件是自动输入yes，在不确定那些是不正常的时候，可以执行 # fsck -y 全部检查修复。例子 :检查 msdos 档案系统的 /dev/hda5 是否正常，如果有异常便自动修复 :fsck -t msdos -a /dev/hda5</li>
+<li>第二步：加载文件系统<code>mount -uaw /</code></li>
+<li>第三步：删除初始化设置时的OSX生成的隐藏文件<code>rm /var/db/.AppleSetupDone</code></li>
+<li>第四步：重启<code>reboot</code></li>
+</ul>
+<p>重启后会出现一个购买mac时开机的初始界面，如下：</p>
+<p>  <img width="600px" src="/images/160724/16072401.png"></p>
+<p>一步一步自己设置就行了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Mac忘记密码</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/24/mac-forgot-password/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-Stage-Summary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/19/Stage-Summary/">2016年中总结</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/19/Stage-Summary/" class="archive-article-date">
   	<time datetime="2016-07-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-19</time>
 </a>
         
@@ -502,7 +613,7 @@
       
         <div class="message"><br>    已经好久没写博客，对最近做一个总结了。恰好这一阶段忙完，今天更新几篇博客。很巧的是，开通这个博客恰好是去年的今天。2015.7.19。好巧啊。。。哈哈。研一的生活结束了，现在还在封闭开发。最近忙着做关于专业英语的事情。总结这一学期，自己还是收获很多的，并没有浪费多少时间。基本上自己的每一个时间都有一定的事情做。而这学期的课程还是挺重的，有一些大作业，需要耗费自己很多的时间。同时还要加强基础的学习，如数据结构和算法等。本学期共做了三个大作业，一个是信息检索的《金融股市检索系统》，采用PHP+Mysql+Sphinx，这里是用了支持中文的基于Sphinx开发的Coreseek。另一个系统为《基于XML存储的日程管理系统》，设计合理的XML存储结构，将每一周的日程安排保存到相应的XML文件中，利用XSLT将XML转换为HTML，可实现对日程的循环添加以及周次，日程查询。还有一个为《六子棋博弈》，这个软件其实是在原有的基础上改进的，改进了棋盘的状态，将棋盘状态统一成和比赛相同的状态。相应的程序在Github上已经上传。可以下载使用。<br></div>
         
-          <a class="article-more-a" href="/2016/07/19/阶段性的总结/#more">more >></a>
+          <a class="article-more-a" href="/2016/07/19/Stage-Summary/#more">more >></a>
         
       
 
@@ -537,7 +648,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/19/阶段性的总结/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/07/19/Stage-Summary/">展开全文 >></a>
         </p>
       
 
@@ -570,7 +681,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -701,6 +812,10 @@ MathJax.Hub.Queue(function() {
               </li>
             
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Spark</a>
+              </li>
+            
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JDK配置</a>
               </li>
             
@@ -717,11 +832,39 @@ MathJax.Hub.Queue(function() {
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Spark</a>
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">三目运算符</a>
               </li>
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Storm</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">HBase</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">中英文字符串截取</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编码规范</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -737,11 +880,139 @@ MathJax.Hub.Queue(function() {
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Zookeeper</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HBase</a>
+                <a href="javascript:void(0)" class="js-tag color5">PDFRender</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PDF转JPEG</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">进程</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">NodeJS</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Unix</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">包管理器</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">rpm</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">yum</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">homebrew</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">apt-get</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MacOS</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Sudo使用问题</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mac忘记密码</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">mac</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vim</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">yaf</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">xml</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">calendar</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nutch</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">solr</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jekyll</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">博客搭建</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IOS</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">IOS开源项目</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">PHP配置</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">apache</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
             
             <div class="clearfix"></div>
