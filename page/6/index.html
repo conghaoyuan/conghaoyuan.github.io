@@ -188,6 +188,223 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-PHP-String" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/10/PHP-String/">PHP中英文混合字符串计算及截取</a>
+    </h1>
+  
+
+        
+        <a href="/2015/08/10/PHP-String/" class="archive-article-date">
+  	<time datetime="2015-08-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div class="message"><br>  之前在处理商品标题的时候，限制了12个字符，而中英文字符长度在不同编码下不同，在网站中统一用utf-8编码，开发用的店铺为测试账号，之前在不发商品名单控制中没限制好，导致很多测试商品买家可以在主站购买，这样可以统一在测试店铺的商品前边加上【测试商品】几个字，用作特殊处理。有遗漏的请留言。<br></div></p>
+<h3 id="先介绍一下字符的编码"><a href="#先介绍一下字符的编码" class="headerlink" title="先介绍一下字符的编码"></a>先介绍一下字符的编码</h3><pre><code>计算机只能识别二进制，对于0-9、A-Z、a-z、特殊的符号，计算机都不能认识。
+</code></pre><ol>
+<li><strong><code>ASCII编码</code></strong>：是美国人发明的，用于处理显示英语国家的语言而设计的字符集。用<code>7位或8位</code>二进制来表示一个字符。<ul>
+<li>共可以表示2^8=256个字符。如：10101010 表示 A</li>
+</ul>
+</li>
+<li><strong><code>ANSI编码</code></strong>：其它国家为了显示本国语言，而对ASCII码进行了扩充。<ul>
+<li>常用的ANSI编码有：<code>GB2312、GBK、BIG5、JIS</code></li>
+<li><em>ANSI</em> 中的字符都是用2个字节(16位二进制)来表示一个字符。如：用1110000000101011表示一个“北”</li>
+<li><em>GB2312</em> 简体中文编码：对6763常用汉字进行编码。</li>
+<li><em>GBK简体扩展码</em> 对GB2312进行了扩展，可以对2.4万汉字进行了编码，提供了1800多个造字位。</li>
+<li><em>BIG5</em> 繁体中文编码。</li>
+</ul>
+</li>
+<li><strong><code>Unicode编码(统一)</code></strong>：将世界上所有字符进行了统一编码，大约100万个左右。效率太低，不便于推广。<ul>
+<li>用4个字节(32位二进制)来表示一个字符。如：00000000000000000000000010100010  代表 A</li>
+</ul>
+</li>
+<li><strong><code>UTF-8编码(统一格式转换)</code></strong>：根据不同字符而选择不同的编码长度。<ul>
+<li>UTF-8是一种可变长度编码，又称“多国语言编码”。</li>
+<li>UTF-8用1到6个字节编码UNICODE字符。用在网页上可以同一页面显示中文简体繁体及其它语言（如英文，日文，韩文）。</li>
+<li>一个汉字在utf-8下的长度为3</li>
+</ul>
+</li>
+</ol>
+        
+          <a class="article-more-a" href="/2015/08/10/PHP-String/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PHP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">中英文字符串截取</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/LANGUAGE//" class="article-tag-list-link color4">LANGUAGE</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/08/10/PHP-String/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
+    <article id="post-jekyll-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/19/jekyll-blog/">jekyll搭建自己的博客(一)</a>
+    </h1>
+  
+
+        
+        <a href="/2015/07/19/jekyll-blog/" class="archive-article-date">
+  	<time datetime="2015-07-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div class="message"><br>之前看多很多coder自己搭建的博客，把自己的一些经验以及好用的小工具之类的写在自己博客。感觉很酷。随想自己也建一个。其实没有想象中的那么难，但是可能涉及到的知识点有点多。<br></div>
+
+<h3 id="少废话-走起"><a href="#少废话-走起" class="headerlink" title="少废话 走起"></a>少废话 走起</h3><h4 id="1-申请github"><a href="#1-申请github" class="headerlink" title="1.申请github"></a>1.申请github</h4><p>这个不用我说了吧，自己去申请吧。<a href="https://github.com/" target="_blank" rel="external">https://github.com/</a><br>申请完成后到了这里：   </p>
+<p>  <img width="600px" src="/images/15719/github1_meitu_1.jpg"><br>看到右下角那个红框框了么。点击去吧。<code>创建一个仓库</code></p>
+<p>好了到了第二步了，写一个你的博客的目录吧。我自己写的是<code>Blog</code> 这个自己想吧。哈哈。。。<br>
+        
+          <a class="article-more-a" href="/2015/07/19/jekyll-blog/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jekyll</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">博客搭建</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/07/19/jekyll-blog/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+  
     <article id="post-JavaScript-and-Node" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -505,11 +722,7 @@ MathJax.Hub.Queue(function() {
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Spark</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JDK配置</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hive</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -521,15 +734,11 @@ MathJax.Hub.Queue(function() {
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hive</a>
+                <a href="javascript:void(0)" class="js-tag color1">JDK配置</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">三目运算符</a>
+                <a href="javascript:void(0)" class="js-tag color1">Spark</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -545,43 +754,7 @@ MathJax.Hub.Queue(function() {
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">中英文字符串截取</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编码规范</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Python爬虫</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Github爬取</a>
-              </li>
-            
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">PDFRender</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PDF转JPEG</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -593,11 +766,35 @@ MathJax.Hub.Queue(function() {
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color5">PDFRender</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NodeJS</a>
+                <a href="javascript:void(0)" class="js-tag color4">PDF转JPEG</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MechineLearning</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">决策树</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">DecisionTree</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">C4.5</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ID3</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -633,31 +830,35 @@ MathJax.Hub.Queue(function() {
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MacOS</a>
+                <a href="javascript:void(0)" class="js-tag color1">nutch</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Sudo使用问题</a>
+                <a href="javascript:void(0)" class="js-tag color5">solr</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mac忘记密码</a>
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">mac</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+                <a href="javascript:void(0)" class="js-tag color1">三目运算符</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vim</a>
+                <a href="javascript:void(0)" class="js-tag color5">编码规范</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">中英文字符串截取</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -665,19 +866,19 @@ MathJax.Hub.Queue(function() {
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">xml</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">calendar</a>
+                <a href="javascript:void(0)" class="js-tag color4">Python爬虫</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nutch</a>
+                <a href="javascript:void(0)" class="js-tag color4">Github爬取</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">solr</a>
+                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -689,11 +890,15 @@ MathJax.Hub.Queue(function() {
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IOS</a>
+                <a href="javascript:void(0)" class="js-tag color3">Mac忘记密码</a>
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">IOS开源项目</a>
+                <a href="javascript:void(0)" class="js-tag color1">MacOS</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Sudo使用问题</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -706,6 +911,50 @@ MathJax.Hub.Queue(function() {
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vim</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">mac</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">opencv</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">xml</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">calendar</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IOS</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">IOS开源项目</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">NodeJS</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">大牛</a>
               </li>
             
             <div class="clearfix"></div>
