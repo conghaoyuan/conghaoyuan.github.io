@@ -17,7 +17,7 @@
 <meta property="og:description" content="1. 前言随着互联网技术和社会化网络的发展，每天有大量包括博客，图片，视频，微博等等的信息发布到网上。传统的搜索技术已经不能满足用户对信息发现的需求，原因有多种，可能是用户很难用合适的关键词来描述自己的需求，也可能用户需要更加符合他们兴趣和喜好的结果，又或是用户无法对自己未知而又可能感兴趣的信息做出描述。推荐引擎的出现，可以帮用户获取更丰富，更符合个人口味和更加有意义的信息。个性化推荐根据用户兴趣">
 <meta property="og:image" content="http://ferdbi.com/images/171027/1.gif">
 <meta property="og:image" content="http://ferdbi.com/images/171027/2.gif">
-<meta property="og:updated_time" content="2017-10-27T07:07:09.000Z">
+<meta property="og:updated_time" content="2017-10-27T07:09:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用的推荐算法解析">
 <meta name="twitter:description" content="1. 前言随着互联网技术和社会化网络的发展，每天有大量包括博客，图片，视频，微博等等的信息发布到网上。传统的搜索技术已经不能满足用户对信息发现的需求，原因有多种，可能是用户很难用合适的关键词来描述自己的需求，也可能用户需要更加符合他们兴趣和喜好的结果，又或是用户无法对自己未知而又可能感兴趣的信息做出描述。推荐引擎的出现，可以帮用户获取更丰富，更符合个人口味和更加有意义的信息。个性化推荐根据用户兴趣">
@@ -256,7 +256,7 @@
 <h3 id="3-推荐系统与广告投放"><a href="#3-推荐系统与广告投放" class="headerlink" title="3.推荐系统与广告投放"></a>3.推荐系统与广告投放</h3><p>互联网上的主题广告推广（例如，百度推广，google adsense）的目标在于实现一个面向用户的个性化广告投放系统。通过把个性化推荐算法在广告投放中的应用，就实现了我们个性化广告投放的目标。那么，这种演变是如何实现的呢？<br>在互联网中，例如，百度，拥有大量的网页信息，而主题广告推广的对象不是用户而是某一类型的页面。通过类比，每种网页类型对应于推荐系统中的一个用户，而每一个广告就对应于推荐系统中的一个物品，网页类型（用户）对广告（物品）的评分则可以用该网页类型中投放广告时的点击情况来计算，这样就构成了一个user-item-rating的矩阵。也就是，通过协同过滤算法可以实现对不同类型的网页进行广告推荐。<br>此外，实际应用协同过滤算法来进行广告投放也存在一个些问题。例如，协同过滤中的“冷启动”问题，也就是新增广告条目的推荐需要额外考虑；同时，也需要考虑用户对广告的接受程度，广告库存率等问题。</p>
 <h4 id="4-业界个性化推荐系统"><a href="#4-业界个性化推荐系统" class="headerlink" title="4. 业界个性化推荐系统"></a>4. 业界个性化推荐系统</h4><h4 id="4-1-Yahoo！Resarch-Web-ScaleRecommendation-Systems"><a href="#4-1-Yahoo！Resarch-Web-ScaleRecommendation-Systems" class="headerlink" title="4.1. Yahoo！Resarch - Web-ScaleRecommendation Systems"></a>4.1. Yahoo！Resarch - Web-ScaleRecommendation Systems</h4><p>2011推荐系统论坛中，来自Yahoo！的Yehuda Koren分享了他对于互联网中推荐系统的经验。在》<br>中，简单介绍了目前广泛流行的协同过滤推荐机制；另外分析了一些推荐系统中值得注意的一些问题：<br>lBias Matters<br>在实际的应用中，用户并不是随机地选择物品去打分，而是只选择那些和他们兴趣相关的物品打分，绝大多数用户往往忽略了去给那些没有兴趣的物品打分。Koren通过分析Netflix Prize数据，Koren发现用户对视频的评分变化中，Bias可以解释其中的33%，而个性化只能解释其中的10%，剩下的57%暂时还得不到解释。<br>lEliciting user feedback<br>Koren的目标是解决推荐系统的cold-start问题，例如，Yahoo！ Movie中，对于新用户，很难预测他们的喜好（对视频的评分）。那么，可以选一些视频让新用户打分，从而获取他们的兴趣数据。在此过程中，使用了决策树模型来引导用户评分，可以用尽量少的视频，最大程度地了解用户兴趣。<br>lEstimating confidence in recommendations<br>在推荐系统中，我们需要对被推荐物品的可信度进行估计，从而得出更为可信的物品来进行推荐。Koren在这里提出了基于概率的可信度计算方法，也就是根据对评分（用户对物品）的概率预测，然后利用熵，标准方差，或是Gini不纯度等概率分布来对物品可信度进行评估。</p>
 <h4 id="4-2-淘宝推荐系统"><a href="#4-2-淘宝推荐系统" class="headerlink" title="4.2. 淘宝推荐系统"></a>4.2. 淘宝推荐系统</h4><p>淘宝推荐系统的目标就是要为各个产品提供商品，店铺，人，类目属性各种维度的推荐。它的核心就是以类目属性和社会属性为纽带，将人，商品和店铺建立起联系。</p>
-<p><img width="600px" src="/images/171027/1.gif"></p>
+<p><img width="400px" src="/images/171027/1.gif"></p>
 <p>淘宝的宝贝推荐原则：</p>
 <ul>
 <li>基于内容的和关联规则</li>
@@ -267,7 +267,7 @@
 <li>加入个性化用户信息</li>
 </ul>
 <p>根据用户的购买和收藏记录产生可推荐的关联规则。对优质宝贝的算分需要考虑商品的相关属性，包括描述，评价，名称，违规，收藏人气，累计销量，UV，以及PV等等。此外，推荐系统根据用户的浏览，收藏，购买行为以及反馈信息，在Hadoop上来计算用户带权重的标签，用于进行个性化推荐。<br>那么，淘宝是如何利用个性化推荐的结果呢？下图展示了淘宝基于个性化推荐的5W营销系统：</p>
-<p><img width="600px" src="/images/171027/2.gif"></p>
+<p><img width="400px" src="/images/171027/2.gif"></p>
 <p>在个性化推荐之上，淘宝还实现了基于内容的广告投放。由于个性化推荐出来的物品是用户所感兴趣的，可以想象，基于此之上的广告投放也应该会行之有效。<br>众所周知，淘宝具有海量的数据和商品问题，这里列举了淘宝数据的一些参数：超过8亿种在线商品，100万产品，4万属性，等等。在淘宝实现推荐系统可能遇到的各种各样的难题，其中有：</p>
 <ul>
 <li>商品种类繁多，生命周期短，很难及时收集到足够多的点击或购买数据，这使得基于用户行为的推荐方法，比如基于物品的推荐方法，发挥空间有限。</li>
@@ -624,15 +624,15 @@ MathJax.Hub.Queue(function() {
               </li>
             
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JDK配置</a>
+              </li>
+            
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">CentOS7</a>
               </li>
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SSH</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JDK配置</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -664,6 +664,14 @@ MathJax.Hub.Queue(function() {
               </li>
             
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">进程</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+              </li>
+            
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">机器学习</a>
               </li>
             
@@ -685,14 +693,6 @@ MathJax.Hub.Queue(function() {
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ID3</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">进程</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -728,19 +728,23 @@ MathJax.Hub.Queue(function() {
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
-              </li>
-            
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nutch</a>
               </li>
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">solr</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PHP</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">编码规范</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -756,11 +760,23 @@ MathJax.Hub.Queue(function() {
               </li>
             
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">编码规范</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Python爬虫</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Github爬取</a>
               </li>
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">yaf</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -777,22 +793,6 @@ MathJax.Hub.Queue(function() {
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">基于协同过滤推荐</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Python爬虫</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Github爬取</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Markdown</a>
               </li>
             
               <li class="article-tag-list-item">
@@ -820,6 +820,10 @@ MathJax.Hub.Queue(function() {
               </li>
             
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mac忘记密码</a>
+              </li>
+            
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">PHP配置</a>
               </li>
             
@@ -837,10 +841,6 @@ MathJax.Hub.Queue(function() {
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">opencv</a>
-              </li>
-            
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mac忘记密码</a>
               </li>
             
               <li class="article-tag-list-item">
